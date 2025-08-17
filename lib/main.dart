@@ -11,11 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('My App'), backgroundColor: Colors.blue),
-        body: Center(child: Text('Hello, World!')),
-        bottomNavigationBar: BottomNavbar(),
-      ),
+      title: 'Flutter Examples',
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+      home: const BottomNavbar(),
     );
   }
 }

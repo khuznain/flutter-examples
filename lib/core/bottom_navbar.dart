@@ -14,7 +14,6 @@ class BottomNavbar extends StatefulWidget {
 class _BottomNavbarState extends State<BottomNavbar> {
   int _currentIndex = 0;
 
-  // List of screens to show for each tab
   final List<Widget> _screens = [
     const HomeScreen(),
     const SearchScreen(),
@@ -30,8 +29,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: Colors.blueGrey,
-        unselectedItemColor: const Color(0xFF526400),
+        unselectedItemColor: Colors.blueGrey,
+        selectedItemColor: const Color(0xFF526400),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),

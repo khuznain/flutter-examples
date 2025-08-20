@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/core/theme/app_theme.dart';
 import 'package:flutter_examples/core/styles/app_styles.dart';
+import 'package:flutter_examples/core/media/app_media.dart';
+import 'package:flutter_examples/shared/widgets/section_header.dart';
+import 'package:flutter_examples/shared/widgets/ticket_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,144 +11,74 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const AppText('Home'),
-        backgroundColor: AppTheme.primaryColor,
-      ),
+      backgroundColor: AppTheme.backgroundColor,
       body: ListView(
-        padding: AppStyles.paddingHorizontalM,
         children: [
-          const SizedBox(height: AppTheme.spacingM),
-
-          // Header Section
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppText(
-                    'Good morning',
-                    style: AppTheme.bodyMedium.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const SizedBox(height: AppTheme.spacingXS),
-                  AppText('Book Tickets', style: AppTheme.heading3),
-                ],
-              ),
-              AppContainer(
-                padding: AppStyles.paddingS,
-                decoration: BoxDecoration(
-                  color: AppTheme.primaryColor,
-                  borderRadius: AppStyles.radiusM,
-                ),
-                child: const AppText(
-                  'Home',
-                  style: TextStyle(color: Colors.white, fontSize: 14),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: AppTheme.spacingL),
-
-          // Search Section
-          AppCard(
-            padding: AppStyles.paddingL,
-            child: Row(
+          const SizedBox(height: 40),
+          Container(
+            padding: AppStyles.paddingHorizontalM,
+            child: Column(
               children: [
-                Icon(
-                  Icons.search,
-                  color: AppTheme.textSecondaryColor,
-                  size: 24,
-                ),
-                const SizedBox(width: AppTheme.spacingM),
-                Expanded(
-                  child: AppText(
-                    'Search for tickets...',
-                    style: AppTheme.bodyMedium.copyWith(
-                      color: AppTheme.textSecondaryColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppText(
+                          'Good morning',
+                          style: AppTheme.bodyMedium.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: AppTheme.spacingXS),
+                        AppText('Book Tickets', style: AppTheme.heading3),
+                      ],
                     ),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: AssetImage(AppMedia.logo),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 25),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppTheme.surfaceColor,
+                    borderRadius: AppStyles.radiusL,
                   ),
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.search),
+                      AppText('Search', style: AppTheme.bodyMedium),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 40),
+                SectionHeader(
+                  title: 'Upcoming Flights',
+                  actionText: 'View All',
+                  onActionPressed: () {},
+                ),
+                const SizedBox(height: 20),
+                const TicketView(),
+                const SizedBox(height: 40),
+                SectionHeader(
+                  title: 'Popular Destinations',
+                  actionText: 'View All',
+                  onActionPressed: () {},
                 ),
               ],
             ),
-          ),
-
-          const SizedBox(height: AppTheme.spacingL),
-
-          // Quick Actions Section
-          AppText('Quick Actions', style: AppTheme.heading4),
-          const SizedBox(height: AppTheme.spacingM),
-
-          Row(
-            children: [
-              Expanded(
-                child: AppCard(
-                  onTap: () {
-                    // Handle action
-                  },
-                  child: Column(
-                    children: [
-                      Icon(Icons.event, size: 32, color: AppTheme.primaryColor),
-                      const SizedBox(height: AppTheme.spacingS),
-                      AppText(
-                        'Events',
-                        style: AppTheme.bodyMedium.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(width: AppTheme.spacingM),
-              Expanded(
-                child: AppCard(
-                  onTap: () {
-                    // Handle action
-                  },
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.movie,
-                        size: 32,
-                        color: AppTheme.secondaryColor,
-                      ),
-                      const SizedBox(height: AppTheme.spacingS),
-                      AppText(
-                        'Movies',
-                        style: AppTheme.bodyMedium.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: AppTheme.spacingL),
-
-          // Action Buttons
-          AppButton(
-            text: 'Book Now',
-            onPressed: () {
-              // Handle booking
-            },
-            icon: const Icon(Icons.add, size: 20),
-          ),
-
-          const SizedBox(height: AppTheme.spacingM),
-
-          OutlinedButton(
-            onPressed: () {
-              // Handle secondary action
-            },
-            style: AppStyles.outlinedButtonStyle,
-            child: const AppText('View History'),
           ),
         ],
       ),

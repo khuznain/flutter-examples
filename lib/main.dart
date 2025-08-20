@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Examples',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode:
-          ThemeMode.system, // Automatically switch between light and dark
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       home: const BottomNavbar(),
     );
   }

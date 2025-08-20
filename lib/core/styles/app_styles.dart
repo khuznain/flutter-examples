@@ -9,30 +9,72 @@ class AppStyles {
   static const EdgeInsets paddingL = EdgeInsets.all(AppTheme.spacingL);
   static const EdgeInsets paddingXL = EdgeInsets.all(AppTheme.spacingXL);
 
-  static const EdgeInsets paddingHorizontalXS = EdgeInsets.symmetric(horizontal: AppTheme.spacingXS);
-  static const EdgeInsets paddingHorizontalS = EdgeInsets.symmetric(horizontal: AppTheme.spacingS);
-  static const EdgeInsets paddingHorizontalM = EdgeInsets.symmetric(horizontal: AppTheme.spacingM);
-  static const EdgeInsets paddingHorizontalL = EdgeInsets.symmetric(horizontal: AppTheme.spacingL);
-  static const EdgeInsets paddingHorizontalXL = EdgeInsets.symmetric(horizontal: AppTheme.spacingXL);
+  static const EdgeInsets paddingHorizontalXS = EdgeInsets.symmetric(
+    horizontal: AppTheme.spacingXS,
+  );
+  static const EdgeInsets paddingHorizontalS = EdgeInsets.symmetric(
+    horizontal: AppTheme.spacingS,
+  );
+  static const EdgeInsets paddingHorizontalM = EdgeInsets.symmetric(
+    horizontal: AppTheme.spacingM,
+  );
+  static const EdgeInsets paddingHorizontalL = EdgeInsets.symmetric(
+    horizontal: AppTheme.spacingL,
+  );
+  static const EdgeInsets paddingHorizontalXL = EdgeInsets.symmetric(
+    horizontal: AppTheme.spacingXL,
+  );
 
-  static const EdgeInsets paddingVerticalXS = EdgeInsets.symmetric(vertical: AppTheme.spacingXS);
-  static const EdgeInsets paddingVerticalS = EdgeInsets.symmetric(vertical: AppTheme.spacingS);
-  static const EdgeInsets paddingVerticalM = EdgeInsets.symmetric(vertical: AppTheme.spacingM);
-  static const EdgeInsets paddingVerticalL = EdgeInsets.symmetric(vertical: AppTheme.spacingL);
-  static const EdgeInsets paddingVerticalXL = EdgeInsets.symmetric(vertical: AppTheme.spacingXL);
+  static const EdgeInsets paddingVerticalXS = EdgeInsets.symmetric(
+    vertical: AppTheme.spacingXS,
+  );
+  static const EdgeInsets paddingVerticalS = EdgeInsets.symmetric(
+    vertical: AppTheme.spacingS,
+  );
+  static const EdgeInsets paddingVerticalM = EdgeInsets.symmetric(
+    vertical: AppTheme.spacingM,
+  );
+  static const EdgeInsets paddingVerticalL = EdgeInsets.symmetric(
+    vertical: AppTheme.spacingL,
+  );
+  static const EdgeInsets paddingVerticalXL = EdgeInsets.symmetric(
+    vertical: AppTheme.spacingXL,
+  );
 
   // Border Radius
-  static const BorderRadius radiusS = BorderRadius.all(Radius.circular(AppTheme.radiusS));
-  static const BorderRadius radiusM = BorderRadius.all(Radius.circular(AppTheme.radiusM));
-  static const BorderRadius radiusL = BorderRadius.all(Radius.circular(AppTheme.radiusL));
-  static const BorderRadius radiusXL = BorderRadius.all(Radius.circular(AppTheme.radiusXL));
-  static const BorderRadius radiusXXL = BorderRadius.all(Radius.circular(AppTheme.radiusXXL));
+  static const BorderRadius radiusS = BorderRadius.all(
+    Radius.circular(AppTheme.radiusS),
+  );
+  static const BorderRadius radiusM = BorderRadius.all(
+    Radius.circular(AppTheme.radiusM),
+  );
+  static const BorderRadius radiusL = BorderRadius.all(
+    Radius.circular(AppTheme.radiusL),
+  );
+  static const BorderRadius radiusXL = BorderRadius.all(
+    Radius.circular(AppTheme.radiusXL),
+  );
+  static const BorderRadius radiusXXL = BorderRadius.all(
+    Radius.circular(AppTheme.radiusXXL),
+  );
 
   // Borders
-  static const BorderSide borderLight = BorderSide(color: AppTheme.dividerColor, width: 1);
-  static const BorderSide borderMedium = BorderSide(color: AppTheme.dividerColor, width: 2);
-  static const BorderSide borderPrimary = BorderSide(color: AppTheme.primaryColor, width: 2);
-  static const BorderSide borderError = BorderSide(color: AppTheme.errorColor, width: 1);
+  static const BorderSide borderLight = BorderSide(
+    color: AppTheme.dividerColor,
+    width: 1,
+  );
+  static const BorderSide borderMedium = BorderSide(
+    color: AppTheme.dividerColor,
+    width: 2,
+  );
+  static const BorderSide borderPrimary = BorderSide(
+    color: AppTheme.primaryColor,
+    width: 2,
+  );
+  static const BorderSide borderError = BorderSide(
+    color: AppTheme.errorColor,
+    width: 1,
+  );
 
   // Box Decorations
   static BoxDecoration cardDecoration = BoxDecoration(
@@ -63,10 +105,7 @@ class AppStyles {
   static const InputDecoration textFieldDecoration = InputDecoration(
     filled: true,
     fillColor: AppTheme.backgroundColor,
-    border: OutlineInputBorder(
-      borderRadius: radiusM,
-      borderSide: borderLight,
-    ),
+    border: OutlineInputBorder(borderRadius: radiusM, borderSide: borderLight),
     enabledBorder: OutlineInputBorder(
       borderRadius: radiusM,
       borderSide: borderLight,
@@ -188,10 +227,7 @@ class AppCard extends StatelessWidget {
     );
 
     if (onTap != null) {
-      return GestureDetector(
-        onTap: onTap,
-        child: card,
-      );
+      return GestureDetector(onTap: onTap, child: card);
     }
 
     return card;
@@ -276,11 +312,11 @@ extension ResponsiveExtension on BuildContext {
   double get screenHeight => MediaQuery.of(this).size.height;
   double get statusBarHeight => MediaQuery.of(this).padding.top;
   double get bottomPadding => MediaQuery.of(this).padding.bottom;
-  
+
   bool get isSmallScreen => screenWidth < 600;
   bool get isMediumScreen => screenWidth >= 600 && screenWidth < 1200;
   bool get isLargeScreen => screenWidth >= 1200;
-  
+
   double get responsivePadding {
     if (isSmallScreen) return AppTheme.spacingM;
     if (isMediumScreen) return AppTheme.spacingL;

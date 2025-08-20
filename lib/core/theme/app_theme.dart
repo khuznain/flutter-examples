@@ -21,7 +21,9 @@ class AppTheme {
   static const Color dividerColor = Color(0xFFE0E0E0);
   static const Color shadowColor = Color(0x1F000000);
 
-  // Text Styles
+  static const Color ticketBlue = Color(0xFF526799);
+  static const Color ticketOrange = Color(0xFFF37B67);
+
   static const TextStyle heading1 = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
@@ -93,14 +95,12 @@ class AppTheme {
   static const double spacingXL = 32.0;
   static const double spacingXXL = 48.0;
 
-  // Border Radius
   static const double radiusS = 4.0;
   static const double radiusM = 8.0;
   static const double radiusL = 12.0;
   static const double radiusXL = 16.0;
   static const double radiusXXL = 24.0;
 
-  // Shadows
   static const List<BoxShadow> shadowSmall = [
     BoxShadow(color: shadowColor, offset: Offset(0, 2), blurRadius: 4),
   ];
@@ -113,7 +113,6 @@ class AppTheme {
     BoxShadow(color: shadowColor, offset: Offset(0, 8), blurRadius: 16),
   ];
 
-  // Theme Data
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
@@ -123,12 +122,10 @@ class AppTheme {
         secondary: secondaryColor,
         secondaryContainer: secondaryLightColor,
         surface: surfaceColor,
-        background: backgroundColor,
         error: errorColor,
         onPrimary: Colors.white,
         onSecondary: Colors.black,
         onSurface: textPrimaryColor,
-        onBackground: textPrimaryColor,
         onError: Colors.white,
       ),
       textTheme: const TextTheme(
@@ -149,14 +146,14 @@ class AppTheme {
         labelSmall: caption,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.white,
         foregroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -231,6 +228,21 @@ class AppTheme {
         thickness: 1,
         space: 1,
       ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: surfaceColor,
+        selectedItemColor: primaryColor,
+        unselectedItemColor: textLightColor,
+        selectedLabelStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+        ),
+        elevation: 8,
+      ),
     );
   }
 
@@ -269,6 +281,21 @@ class AppTheme {
         labelLarge: button,
         labelMedium: bodySmall,
         labelSmall: caption,
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFF1E1E1E),
+        selectedItemColor: primaryColor,
+        unselectedItemColor: Color(0xFF757575),
+        selectedLabelStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+        ),
+        elevation: 8,
       ),
     );
   }

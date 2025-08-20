@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/core/theme/app_theme.dart';
+import 'package:flutter_examples/core/styles/app_styles.dart';
+import 'package:flutter_examples/shared/widgets/section_header.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -10,23 +13,39 @@ class SearchScreen extends StatelessWidget {
         title: const Text('Search'),
         backgroundColor: Colors.green,
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.search, size: 100, color: Colors.green),
-            SizedBox(height: 20),
-            Text(
-              'Search Screen',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      backgroundColor: AppTheme.backgroundColor,
+      body: ListView(
+        padding: AppStyles.paddingHorizontalM,
+        children: [
+          const SizedBox(height: 40),
+          // Example 1: Section with action button
+          SectionHeader(
+            title: 'Recent Searches',
+            actionText: 'Clear All',
+            onActionPressed: () {
+              // Handle clear all action
+            },
+          ),
+          const SizedBox(height: 20),
+
+          // Example 2: Section without action button
+          SectionHeader(title: 'Popular Categories'),
+          const SizedBox(height: 20),
+
+          // Example 3: Section with custom styling
+          SectionHeader(
+            title: 'Featured Destinations',
+            actionText: 'See More',
+            onActionPressed: () {
+              // Handle see more action
+            },
+            titleStyle: AppTheme.heading2,
+            actionTextStyle: AppTheme.bodySmall.copyWith(
+              color: AppTheme.secondaryColor,
+              fontWeight: FontWeight.w500,
             ),
-            SizedBox(height: 10),
-            Text(
-              'Find what you\'re looking for',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
